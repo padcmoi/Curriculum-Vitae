@@ -1,3 +1,31 @@
-
+@media only screen and (max-width: 824px) {
+  .sidebar-utility {
+    display: none;
+  }
+  .category {
+    background: var(--background-color-responsive-1) !important;
+  }
+  .image,
+  .left-column {
+    background: var(--background-color-responsive-2) !important;
+  }
+  .cv-container {
+    width: 100%;
+    height: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "image" "header" "left-column" "right-column";
+    gap: 0;
+    padding: 0.25em;
+  }
+  .header {
+    font-size: var(--font-size-header);
+  }
+}
+@media only screen and (max-width: 412px) {
+  .cv-container {
+    padding: 0;
+  }
+}
 
 /*# sourceMappingURL=responsive.css.map */

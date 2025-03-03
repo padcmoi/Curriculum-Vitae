@@ -20,6 +20,8 @@
   --background-color-container: #fff;
   --background-color-gradient-start: #fff5e6;
   --background-color-gradient-end: white;
+  --background-color-responsive-1: #fff5e6;
+  --background-color-responsive-2: white;
   --color-text: #333;
   --color-text-secondary: #333;
   --color-link: #333;
@@ -593,7 +595,7 @@ abbr {
   color: var(--color-text);
   display: grid;
   grid-template-columns: 33% repeat(3, 1fr);
-  grid-template-rows: 90px 60px repeat(5, 1fr);
+  grid-template-rows: 90px 100px repeat(5, 1fr);
   grid-template-areas: "image header header header" "image right-column right-column right-column" "left-column right-column right-column right-column" "left-column right-column right-column right-column" "left-column right-column right-column right-column" "left-column right-column right-column right-column" "left-column right-column right-column right-column";
   gap: 0;
   padding: var(--padding-container);
@@ -604,6 +606,7 @@ abbr {
 .image {
   grid-area: image;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background: linear-gradient(to left, var(--background-color-gradient-start) 80%, var(--background-color-gradient-end));
@@ -619,6 +622,15 @@ abbr {
 .image img:hover {
   transform: scale(1.05);
   box-shadow: var(--box-shadow-image-hover);
+}
+.image .full-name {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: var(--font-family-title);
+  font-size: 1.75em;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .header {

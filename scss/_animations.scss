@@ -1,0 +1,30 @@
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(var(--animation-pulse-scale-start));
+  }
+  50% {
+    transform: scale(var(--animation-pulse-scale-end));
+  }
+}
+
+@keyframes typing {
+  from {
+    width: var(--animation-typing-width-start);
+    opacity: 1;
+  }
+  to {
+    width: var(--animation-typing-width-end);
+    opacity: 1;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--animation-blink-caret-color);
+  }
+}

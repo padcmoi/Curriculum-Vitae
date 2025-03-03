@@ -1,0 +1,66 @@
+body {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-color-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0 1.5em;
+  font-size: 0.9em;
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+  transition: color var(--transition-duration) var(--transition-ease);
+
+  &:hover {
+    color: var(--color-link-hover);
+    text-decoration: underline;
+  }
+}
+
+abbr {
+  color: var(--color-text-secondary);
+}
+
+// PDF Print
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  // I don't know if I should add a checkbox to give the option to enable this or remove print-color-adjust
+  // *,
+  // *::before {
+  //   background: transparent !important;
+  //   background-color: transparent !important;
+  // }
+}

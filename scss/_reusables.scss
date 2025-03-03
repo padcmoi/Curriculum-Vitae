@@ -1,0 +1,170 @@
+.timeline {
+  position: relative;
+  margin: 0 auto;
+  padding: 0.5em 0;
+  padding-top: 1em;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0em;
+    bottom: 1em;
+    left: 0.5em;
+    width: 4px;
+    border-left: 2px dotted var(--timeline-border-color);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: -0.75em;
+    left: 0;
+    border: solid transparent;
+    border-width: 10px;
+    border-bottom-color: var(--timeline-border-color);
+  }
+
+  .timeline-event {
+    position: relative;
+    margin-top: 1em;
+    padding-left: 1em;
+    text-align: left;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -0.8em;
+      left: 0.5em;
+      width: 0;
+      height: 0;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-left: 10px solid var(--timeline-border-color);
+      z-index: 2;
+    }
+
+    .timeline-event-content {
+      padding: 0.5em 0.2em;
+      color: var(--timeline-text-color);
+      border-radius: 8px;
+      position: relative;
+
+      &::before {
+        content: attr(data-start) " " attr(data-separator) " " attr(data-end);
+        background-color: var(--timeline-background-color);
+        padding: 0 1em;
+        position: absolute;
+        top: -1.1em;
+        left: -1.35em;
+        font-weight: bold;
+        white-space: nowrap;
+        font-size: 1em;
+        color: var(--timeline-text-color);
+      }
+    }
+  }
+}
+
+.sidebar-utility {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+  background-color: var(--sidebar-background-color);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+
+  button {
+    background-color: transparent;
+    color: var(--sidebar-button-color);
+    border: none;
+    padding: 0.5em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: width 0.3s, padding 0.3s;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 80px;
+    padding-left: 0.5em;
+    animation: pulse 1s infinite;
+    font-size: 1.5em;
+    font-weight: bold;
+
+    &:hover {
+      width: 100%;
+      animation: none;
+      border: 1px solid var(--sidebar-button-hover-border-color);
+      border-left: none;
+    }
+
+    .icon {
+      transform: scale(2);
+      margin: 0 0.5em;
+      fill: var(--sidebar-button-color);
+      flex-shrink: 0;
+    }
+
+    span {
+      display: none;
+    }
+
+    &:hover span {
+      display: flex;
+    }
+  }
+}
+
+.skills-list {
+  padding: 0;
+
+  &.margin-left {
+    margin-left: 0.5em;
+  }
+  &.margin-right {
+    margin-right: 0.5em;
+  }
+
+  .child {
+    margin-left: 1em;
+  }
+
+  .skill-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5em;
+
+    .name {
+      flex: 1;
+      font-weight: bold;
+      color: var(--skills-text-color);
+      white-space: nowrap;
+    }
+
+    .dots {
+      flex: 0 100%;
+      border-bottom: 1px dotted var(--skills-dots-color);
+      margin: 0 10px;
+    }
+
+    .level {
+      flex: 0 0 30px;
+      text-align: right;
+      color: var(--skills-level-color);
+      white-space: nowrap;
+    }
+
+    .stars {
+      flex: 0 0 60px;
+      color: var(--skills-stars-color);
+      text-align: left;
+      white-space: nowrap;
+    }
+  }
+}

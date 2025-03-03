@@ -1,0 +1,215 @@
+@use "variables" as *;
+@use "vendors" as *;
+@use "animations" as *;
+@use "base" as *;
+@use "utils" as *;
+@use "reusables" as *;
+
+.cv-container {
+  width: 210mm; /* 793.7px */
+  height: 297mm; /* 1122.5px */
+  background-color: var(--background-color-container);
+  color: var(--color-text);
+  display: grid;
+  grid-template-columns: 33% repeat(3, 1fr);
+  grid-template-rows: 90px 60px repeat(5, 1fr);
+  grid-template-areas:
+    "image header header header"
+    "image right-column right-column right-column"
+    "left-column right-column right-column right-column"
+    "left-column right-column right-column right-column"
+    "left-column right-column right-column right-column"
+    "left-column right-column right-column right-column"
+    "left-column right-column right-column right-column";
+  gap: 0;
+  padding: var(--padding-container);
+  box-shadow: var(--box-shadow-container);
+  box-sizing: border-box;
+}
+
+.image {
+  grid-area: image;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to left, var(--background-color-gradient-start) 80%, var(--background-color-gradient-end));
+
+  img {
+    width: 150px;
+    height: 150px;
+    box-shadow: var(--box-shadow-image);
+    border-radius: 50%;
+    z-index: 2;
+    transition: transform var(--transition-duration) var(--transition-ease), box-shadow var(--transition-duration) var(--transition-ease);
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: var(--box-shadow-image-hover);
+    }
+  }
+}
+
+.header {
+  grid-area: header;
+  border-left: none;
+  margin-left: 0.5em;
+  font-size: var(--font-size-header);
+
+  .container {
+    h1 {
+      font-family: var(--font-family-title);
+      text-align: center;
+      color: var(--color-text);
+    }
+
+    p {
+      margin-top: 0.5em;
+      text-align: center;
+      color: var(--color-text);
+    }
+  }
+}
+
+.left-column {
+  grid-area: left-column;
+  background: linear-gradient(to left, var(--background-color-gradient-start) 80%, var(--background-color-gradient-end));
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  z-index: 1;
+  font-size: 0.8em;
+
+  .full-name,
+  .personal-info,
+  .skills,
+  .mad-skills,
+  .soft-skills {
+    width: 100%;
+  }
+
+  .full-name {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: var(--font-family-title);
+    font-size: 1.75em;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+
+.right-column {
+  grid-area: right-column;
+  border-left: none;
+  margin-left: 0.5em;
+  font-size: var(--font-size-header);
+}
+
+.cv-aside {
+  ul {
+    padding-left: 0;
+
+    li {
+      display: flex;
+      align-items: center;
+
+      .icon {
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
+.cv-section {
+  h1 {
+    font-size: var(--font-size-h1);
+  }
+
+  h2 {
+    font-size: var(--font-size-h2);
+  }
+
+  h3 {
+    font-size: var(--font-size-h3);
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .category {
+    display: flex;
+    align-items: center;
+    margin: 0 -0.5em;
+    padding: 0.25em 0.25em;
+    background: linear-gradient(to right, var(--background-color-gradient-start) 80%, var(--background-color-gradient-end));
+    color: var(--color-text);
+    font-weight: bold;
+    gap: 0.5em;
+
+    h2 {
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    .icon {
+      height: 24px;
+      width: 24px;
+      fill: var(--color-text);
+    }
+  }
+
+  .three-rows {
+    margin: 0 1em;
+
+    h3 {
+      font-size: var(--font-size-h3);
+    }
+
+    div:not([class^="custom-div"]) {
+      display: flex;
+      gap: 0.25em;
+      margin-left: 0.5em;
+      margin-bottom: 0.5em;
+
+      span {
+        display: flex;
+        font-weight: normal;
+      }
+      address {
+        font-weight: bold;
+        font-style: normal;
+      }
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.9em;
+    }
+
+    ul {
+      list-style-type: disc;
+
+      li {
+        .icon {
+          margin-right: 8px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    .custom-div-flex1 {
+      display: flex;
+      gap: 0.25em;
+
+      span {
+        display: flex;
+        font-weight: bold;
+      }
+      address {
+        font-weight: 400;
+        font-style: normal;
+      }
+    }
+  }
+}

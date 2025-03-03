@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="cv-container" id="cv">
+      <!-- Photo -->
+      <div class="image no-select">
+        <img src="./identity.png" alt="Photo" />
+      </div>
+
+      <!-- Title -->
+      <header class="header cv-section">
+        <div class="category no-select">
+          <i class="icon material-symbols-outlined no-select">target</i>
+          <h2>Profil Professionnel</h2>
+        </div>
+
+        <div class="container">
+          <h1 class="typing-effect-delayed">Développeur fullstack JavaScript</h1>
+          <p class="typing-effect-delayed">À la recherche d'une opportunité professionnelle</p>
+        </div>
+      </header>
+
+      <!-- left -->
+      <aside class="left-column">
+        <h2 class="typing-effect full-name">Julien JEAN</h2>
+
+        <section class="cv-aside skills">
+          <div class="category my-2 no-select">
+            <h2>Profil, Site web, Books</h2>
+          </div>
+
+          <ul>
+            <li class="text-bold"><i class="material-symbols-outlined icon no-select">wifi_calling_bar_3</i><a href="tel:+33609283938">+336 09 28 39 38</a></li>
+            <li class="text-bold"><i class="material-symbols-outlined icon no-select">location_on</i><a href="#" onclick="GoogleMapModal.initialize('83600 Fréjus', 'FRANCE').openModal()">83600 Fréjus (FRANCE)</a></li>
+            <li class="text-bold"><i class="material-symbols-outlined icon no-select">alternate_email</i><a href="mailto:julien.jean.06100@gmail.com">julien.jean.06100@gmail.com</a></li>
+
+            <li class="text-bold"><i class="icon icon-github no-select"></i><a href="https://github.com/padcmoi" target="_blank">github.com/padcmoi</a></li>
+            <li class="text-bold"><i class="icon icon-linkedin no-select"></i> <a href="https://linkedin.com/in/julienjean-nice" target="_blank">linkedin.com/in/julienjean-nice</a></li>
+            <li class="text-bold"><i class="material-symbols-outlined icon no-select">photo_auto_merge</i><a href="https://www.julienjean.ovh" target="_blank">www.julienjean.ovh</a></li>
+          </ul>
+        </section>
+        <section class="cv-aside mad-skills">
+          <div class="category my-2 no-select">
+            <h2>Compétences</h2>
+          </div>
+
+          <div id="skills-id"></div>
+        </section>
+      </aside>
+
+      <!-- right -->
+      <main class="right-column">
+        <section class="cv-section">
+          <div class="category no-select">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 -960 960 960" width="24px" height="24px">
+              <path d="M320-414v-306h120v306l-60-56-60 56Zm200 60v-526h120v406L520-354ZM120-216v-344h120v224L120-216Zm0 98 258-258 142 122 224-224h-64v-80h200v200h-80v-64L524-146 382-268 232-118H120Z" />
+            </svg>
+            <h2>Expériences Professionnelles</h2>
+          </div>
+
+          <div id="professional-experiences" class="timeline"></div>
+        </section>
+
+        <section class="cv-section">
+          <div class="category no-select">
+            <i class="icon material-symbols-outlined no-select">license</i>
+            <h2>Formations / Certifications</h2>
+          </div>
+
+          <div id="passed-certifications" class="timeline"></div>
+        </section>
+      </main>
+    </div>
+
+    <div class="sidebar-utility no-print">
+      <button onclick="printOrDownloadPDF()">
+        <i class="icon material-symbols-outlined no-select">picture_as_pdf</i>
+        <div>
+          <span>Imprimer ou enregistrer</span>
+        </div>
+      </button>
+    </div>
+
+    <script src="./common.js"></script>
+    <script src="./data.js"></script>
+  </body>
+</html>

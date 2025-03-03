@@ -254,7 +254,21 @@ function printOrDownloadPDF() {
   const restoreTitle = document.title;
   document.title = "CV_Julien_Jean_developer_fullstack_JavaScript";
 
-  window.print();
+  function isMobile() {
+    const userAgent = typeof window !== "undefined" ? window.navigator.userAgent : "";
+    return /Mobi|Android/i.test(userAgent);
+  }
+
+  if (isMobile()) {
+    const link = document.createElement("a");
+    link.href = "./generate_cv.pdf";
+    link.download = `${document.title}.pdf`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  } else {
+    window.print();
+  }
 
   elements.forEach((element) => {
     element.classList.forEach((className) => {

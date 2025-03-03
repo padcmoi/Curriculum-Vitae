@@ -2,7 +2,8 @@
   body {
     display: flex;
     flex-direction: column;
-    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
   }
   .cv-container {
     width: 100%;
@@ -11,13 +12,18 @@
     grid-template-rows: auto;
     grid-template-areas: "image" "header" "left-column" "right-column";
     gap: 0;
-    padding: 0.25em;
+    padding: 1em 0.25em !important;
   }
   .header {
     font-size: var(--font-size-header);
   }
+  .full-name {
+    margin: 1em 0;
+  }
   .category {
     background: var(--background-color-responsive-1) !important;
+    padding: 0 !important;
+    margin: 0.5em 0 !important;
   }
   .image,
   .left-column {
@@ -50,6 +56,14 @@
   }
   .three-rows div:not([class^=custom-div]) {
     flex-wrap: wrap;
+  }
+}
+@media only screen and (max-width: 412px) {
+  .cv-container {
+    padding: 0.5em;
+  }
+  .header {
+    font-size: calc(var(--font-size-header) - 5%);
   }
 }
 

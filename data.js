@@ -168,8 +168,7 @@ new TimelineEvents(document.getElementById("passed-certifications"), [
     startDate: "1 décembre 2019",
     endDate: "30 aout 2020",
     title: "Titre professionnel développeur web & web mobile",
-    company: "DYMA",
-    companyUrl: "https://dyma.fr/",
+    company: "GRETA",
     location: "Nice",
     localize: { city: "Nice", country: "FRANCE" },
     description: [

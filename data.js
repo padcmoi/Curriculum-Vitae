@@ -157,6 +157,7 @@ new TimelineEvents(document.getElementById("passed-certifications"), [
     company: "O'clock",
     companyUrl: "https://oclock.io/",
     location: "En ligne",
+    descriptionClasses: ["custom-div-flex1"],
     description: [
       {
         element: "p",
@@ -171,6 +172,7 @@ new TimelineEvents(document.getElementById("passed-certifications"), [
     company: "GRETA",
     location: "Nice",
     localize: { city: "Nice", country: "FRANCE" },
+    descriptionClasses: ["custom-div-flex1"],
     description: [
       {
         element: "p",

@@ -1,13 +1,8 @@
 @media only screen and (max-width: 824px) {
-  .sidebar-utility {
-    display: none;
-  }
-  .category {
-    background: var(--background-color-responsive-1) !important;
-  }
-  .image,
-  .left-column {
-    background: var(--background-color-responsive-2) !important;
+  body {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
   }
   .cv-container {
     width: 100%;
@@ -21,10 +16,40 @@
   .header {
     font-size: var(--font-size-header);
   }
-}
-@media only screen and (max-width: 412px) {
-  .cv-container {
-    padding: 0;
+  .category {
+    background: var(--background-color-responsive-1) !important;
+  }
+  .image,
+  .left-column {
+    background: var(--background-color-responsive-2) !important;
+  }
+  .sidebar-utility {
+    margin: 3em 0;
+    position: static;
+    top: 0;
+    left: 0;
+    transform: translateY(0);
+    display: static;
+    gap: 0;
+  }
+  .sidebar-utility button {
+    width: 100%;
+    padding: 0.5em;
+    align-items: center;
+    transition: none;
+    border: 1px solid transparent;
+    animation: none;
+  }
+  .sidebar-utility button:hover {
+    width: 100%;
+    animation: none;
+    border: 1px solid var(--sidebar-button-hover-border-color);
+  }
+  .sidebar-utility button span {
+    display: block;
+  }
+  .three-rows div:not([class^=custom-div]) {
+    flex-wrap: wrap;
   }
 }
 

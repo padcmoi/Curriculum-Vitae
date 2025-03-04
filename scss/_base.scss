@@ -53,7 +53,8 @@ abbr {
     print-color-adjust: exact;
   }
 
-  .no-print {
+  .no-print,
+  #fork-me-ongithub-id {
     display: none !important;
   }
 

@@ -29,6 +29,9 @@ chromium.setGraphicsMode = false;
       });
     });
 
+    const githubForkMe = document.getElementById("fork-me-ongithub-id");
+    if (githubForkMe) githubForkMe.remove();
+
     // Adjust the content to fit on one page
     document.body.style.margin = "0";
     document.body.style.padding = "0";

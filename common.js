@@ -303,6 +303,26 @@ function startTypingEffects() {
   }
 }
 
+// github ribbon fork project
+if (window.location.hostname.includes("netlify.app")) {
+  const githubRibbon = document.createElement("a");
+  githubRibbon.id = "fork-me-ongithub-id";
+  githubRibbon.href = "https://github.com/padcmoi/Curriculum-Vitae";
+  githubRibbon.target = "_blank";
+  githubRibbon.style.position = "absolute";
+  githubRibbon.style.top = "0";
+  githubRibbon.style.right = "0";
+  githubRibbon.style.border = "0";
+  githubRibbon.style.zIndex = "1000";
+
+  const githubImage = document.createElement("img");
+  githubImage.src = "./github.forkme.svg";
+  githubImage.alt = "Fork me on GitHub";
+
+  githubRibbon.appendChild(githubImage);
+  document.body.appendChild(githubRibbon);
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   startTypingEffects();
 });

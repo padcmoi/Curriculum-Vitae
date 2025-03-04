@@ -2,3 +2,5 @@ node_modules
 *.css.map
 
 test.*
+
+*.pdf

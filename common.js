@@ -261,7 +261,7 @@ function printOrDownloadPDF() {
 
   if (isMobile()) {
     const link = document.createElement("a");
-    link.href = "./generate_cv.pdf";
+    link.href = "./cv-julien-jean.pdf";
     link.download = `${document.title}.pdf`;
     document.body.appendChild(link);
     link.click();

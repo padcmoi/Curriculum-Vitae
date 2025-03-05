@@ -1,15 +1,8 @@
 @media only screen and (max-width: 980px) {
-  body {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-  }
   .hide-element-on-small-screen {
     display: none !important;
   }
   .sidebar-utility {
-    margin: 3em 0;
     position: static;
     top: 0;
     left: 0;

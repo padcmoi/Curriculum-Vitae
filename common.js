@@ -333,12 +333,29 @@ function hiddenElements() {
   });
 }
 
+async function fetchLastCommitDate() {
+  try {
+    const response = await fetch("https://api.github.com/repos/padcmoi/Curriculum-Vitae/commits");
+    const commits = await response.json();
+    if (commits.length > 0) {
+      const lastCommitDate = new Date(commits[0].commit.author.date);
+      const lastCommitElement = document.getElementById("last-commit-id");
+      if (lastCommitElement) {
+        lastCommitElement.textContent = `Dernière mise à jour: ${lastCommitDate.toLocaleString()}`;
+      }
+    }
+  } catch (error) {
+    console.error("Error fetching last commit date:", error);
+  }
+}
+
 window.addEventListener("resize", hiddenElements);
 window.addEventListener("orientationchange", hiddenElements);
 
 document.addEventListener("DOMContentLoaded", function () {
   startTypingEffects();
   hiddenElements();
+  fetchLastCommitDate();
 
   document.title = "CV_Julien_Jean_developer_fullstack_JavaScript";
 });

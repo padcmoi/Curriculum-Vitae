@@ -78,7 +78,7 @@
       </main>
     </div>
 
-    <div class="sidebar-utility no-print">
+    <div class="sidebar-utility no-select no-print">
       <button class="hide-element-on-small-screen" onclick="printOrDownloadPDF()">
         <i class="icon material-symbols-outlined no-select">print</i>
         <div>
@@ -92,6 +92,13 @@
         </div>
       </button>
     </div>
+
+    <footer class="footer no-select no-print">
+      <div class="separator"></div>
+      <div class="text">
+        <p id="last-commit-id"></p>
+      </div>
+    </footer>
 
     <script src="./common.js"></script>
     <script src="./data.js"></script>

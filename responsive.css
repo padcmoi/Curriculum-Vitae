@@ -1,10 +1,52 @@
-@media only screen and (max-width: 824px) {
+@media only screen and (max-width: 980px) {
   body {
     display: flex;
     flex-direction: column;
     margin: 0;
     padding: 0;
   }
+  .hide-element-on-small-screen {
+    display: none !important;
+  }
+  .sidebar-utility {
+    margin: 3em 0;
+    position: static;
+    top: 0;
+    left: 0;
+    transform: translateY(0);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5em 0;
+  }
+}
+@media only screen and (max-width: 980px) and (max-width: 475px) {
+  .sidebar-utility {
+    justify-content: center;
+  }
+}
+@media only screen and (max-width: 980px) {
+  .sidebar-utility button {
+    width: auto;
+    padding: 1em;
+    align-items: center;
+    transition: none;
+    border: 1px solid transparent;
+    animation: none;
+    border-radius: 20px;
+  }
+  .sidebar-utility button:hover {
+    width: auto;
+    animation: none;
+    border: 1px solid var(--sidebar-button-hover-border-color);
+  }
+  .sidebar-utility button span {
+    visibility: visible;
+  }
+}
+@media only screen and (max-width: 824px) {
   .cv-container {
     width: 100%;
     height: auto;
@@ -28,31 +70,6 @@
   .image,
   .left-column {
     background: var(--background-color-responsive-2) !important;
-  }
-  .sidebar-utility {
-    margin: 3em 0;
-    position: static;
-    top: 0;
-    left: 0;
-    transform: translateY(0);
-    display: static;
-    gap: 0;
-  }
-  .sidebar-utility button {
-    width: 100%;
-    padding: 0.5em;
-    align-items: center;
-    transition: none;
-    border: 1px solid transparent;
-    animation: none;
-  }
-  .sidebar-utility button:hover {
-    width: 100%;
-    animation: none;
-    border: 1px solid var(--sidebar-button-hover-border-color);
-  }
-  .sidebar-utility button span {
-    display: block;
   }
   .three-rows div:not([class^=custom-div]) {
     flex-wrap: wrap;

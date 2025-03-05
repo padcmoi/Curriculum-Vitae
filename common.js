@@ -241,6 +241,11 @@ class GoogleMapModal {
   }
 }
 
+function isMobile() {
+  const userAgent = typeof window !== "undefined" ? window.navigator.userAgent : "";
+  return /Mobi|Android/i.test(userAgent);
+}
+
 function printOrDownloadPDF() {
   const elements = document.querySelectorAll(".typing-effect, .typing-effect-delayed");
   elements.forEach((element) => {
@@ -251,21 +256,8 @@ function printOrDownloadPDF() {
     });
   });
 
-  const restoreTitle = document.title;
-  document.title = "CV_Julien_Jean_developer_fullstack_JavaScript";
-
-  function isMobile() {
-    const userAgent = typeof window !== "undefined" ? window.navigator.userAgent : "";
-    return /Mobi|Android/i.test(userAgent);
-  }
-
   if (isMobile()) {
-    const link = document.createElement("a");
-    link.href = "./cv-julien-jean.pdf";
-    link.download = `${document.title}.pdf`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    justDownloadPDF();
   } else {
     window.print();
   }
@@ -277,8 +269,15 @@ function printOrDownloadPDF() {
       }
     });
   });
+}
 
-  document.title = restoreTitle;
+function justDownloadPDF() {
+  const link = document.createElement("a");
+  link.href = "./cv-julien-jean.pdf";
+  link.download = `${document.title}.pdf`;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 }
 
 function startTypingEffects() {
@@ -323,6 +322,23 @@ if (window.location.hostname.includes("netlify.app")) {
   document.body.appendChild(githubRibbon);
 }
 
+function hiddenElements() {
+  const hiddenElements = document.querySelectorAll(".hide-element-on-small-screen");
+  hiddenElements.forEach((element) => {
+    if (isMobile()) {
+      element.style.display = "none";
+    } else {
+      element.style.display = "";
+    }
+  });
+}
+
+window.addEventListener("resize", hiddenElements);
+window.addEventListener("orientationchange", hiddenElements);
+
 document.addEventListener("DOMContentLoaded", function () {
   startTypingEffects();
+  hiddenElements();
+
+  document.title = "CV_Julien_Jean_developer_fullstack_JavaScript";
 });

@@ -78,7 +78,7 @@ new TimelineEvents(document.getElementById("professional-experiences"), [
           `Capture en direct du micro de l'utilisateur.`,
           `Mise en cache des sons écoutés pour garantir leur disponibilité.`,
           `Déplacement des éléments en Drag and Drop.`,
-          `Utilisation d'un timer pour guider l'utilisateur à travers différents exercices et évaluer la rapidité avant de sauvegarder les résultats vers l'API.`,
+          `Utilisation d'un timer pour guider l'utilisateur à travers différents exercices et évaluer sa rapidité avant de sauvegarder les résultats vers l'API.`,
         ],
       },
       { element: "p", content: `Étroitement collaboré avec l’équipe backend sur les endpoints, avec des contributions sur l’API NestJS.` },
@@ -127,7 +127,7 @@ Leur agence web facturait chaque ajout d'images, ce qui posait problème pour le
       },
       {
         element: "ul",
-        children: [`Gestion des images et conversion au format webp (plus leger).`, `Gestion des chevaux (ajout, modification, suppression).`, `Rappels pour les soins des chevaux (vermifuge, ferrage, etc.).`],
+        children: [`Gestion des images et conversion au format webp (plus leger).`, `Gestion des chevaux (consultation, ajout, modification, suppression).`, `Rappels pour les soins des chevaux (vermifuge, ferrage, etc.).`],
       },
       { element: "p", content: "Malgré des mesures de sécurité rigoureuses (API), le client a souhaité retirer l'application par crainte de fuite de données." },
     ],

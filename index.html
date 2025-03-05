@@ -79,10 +79,16 @@
     </div>
 
     <div class="sidebar-utility no-print">
-      <button onclick="printOrDownloadPDF()">
+      <button class="hide-element-on-small-screen" onclick="printOrDownloadPDF()">
+        <i class="icon material-symbols-outlined no-select">print</i>
+        <div>
+          <span>Imprimer</span>
+        </div>
+      </button>
+      <button onclick="justDownloadPDF()">
         <i class="icon material-symbols-outlined no-select">picture_as_pdf</i>
         <div>
-          <span>Imprimer ou enregistrer</span>
+          <span>Télécharger</span>
         </div>
       </button>
     </div>

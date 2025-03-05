@@ -511,16 +511,15 @@ abbr {
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 2em;
   z-index: 1000;
-  background-color: var(--sidebar-background-color);
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
 }
 .sidebar-utility button {
   background-color: transparent;
+  background-color: var(--sidebar-background-color);
   color: var(--sidebar-button-color);
-  border: none;
   padding: 0.5em;
   display: flex;
   align-items: center;
@@ -529,17 +528,18 @@ abbr {
   transition: width 0.3s, padding 0.3s;
   overflow: hidden;
   white-space: nowrap;
-  width: 80px;
+  width: 3em;
   padding-left: 0.5em;
-  animation: pulse 1s infinite;
   font-size: 1.5em;
   font-weight: bold;
+  border: 1px solid transparent;
+  border-left: none;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 .sidebar-utility button:hover {
   width: 100%;
-  animation: none;
-  border: 1px solid var(--sidebar-button-hover-border-color);
-  border-left: none;
+  border-color: var(--sidebar-button-hover-border-color);
 }
 .sidebar-utility button .icon {
   transform: scale(2);
@@ -548,10 +548,12 @@ abbr {
   flex-shrink: 0;
 }
 .sidebar-utility button span {
-  display: none;
+  visibility: hidden;
+  margin: 0;
+  padding: 0;
 }
 .sidebar-utility button:hover span {
-  display: flex;
+  visibility: visible;
 }
 
 .skills-list {

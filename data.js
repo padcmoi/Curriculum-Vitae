@@ -29,7 +29,11 @@ const skillsData = [
       { name: "Next v15", level: "débutant", stars: "★☆☆☆☆", dots: true },
       {
         name: "Bibliothèques de composants:",
-        children: [{ name: "Mui", stars: "☆☆☆☆☆", dots: true }],
+        children: [
+          { name: "HeroUI (NextUI)", stars: "★☆☆☆☆", dots: true },
+          { name: "Prime React", stars: "★☆☆☆☆", dots: true },
+          { name: "Mui", stars: "☆☆☆☆☆", dots: true },
+        ],
       },
     ],
   },
@@ -39,7 +43,7 @@ const skillsData = [
     children: [
       { name: "Css3", stars: "★★★★☆", dots: true },
       { name: "Bootstrap v5", stars: "★★★★☆", dots: true },
-      { name: "Tailwind v4", stars: "★★☆☆☆", dots: true },
+      { name: "Tailwind v3 v4", stars: "★★★☆☆", dots: true },
     ],
   },
   {

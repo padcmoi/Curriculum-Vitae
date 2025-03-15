@@ -82,6 +82,10 @@ footer {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
+  .cv-container {
+    padding: var(--padding-print-container) !important;
+    box-shadow: none !important;
+  }
 
   .no-print,
   #fork-me-ongithub-id {

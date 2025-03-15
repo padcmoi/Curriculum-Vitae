@@ -1,5 +1,7 @@
 // skills
 const skillsData = [
+  { name: "Docker", level: "2 ans", stars: "★★★★☆", dots: true },
+  { name: "Linux/BASH", level: "+10 ans", stars: "★★★★☆", dots: true },
   { name: "VanillaJS", level: "6 ans", stars: "★★★★★", dots: true },
   { name: "NodeJS", stars: "★★★★☆", dots: true },
   { name: "TypeScript", level: "2 ans", stars: "★★★☆☆", dots: true },

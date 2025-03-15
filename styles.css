@@ -12,7 +12,8 @@
   --font-family-body: "Roboto", sans-serif;
   --font-family-title: "Paytone One", sans-serif;
   --font-size-body: 1em;
-  --font-size-header: 0.85em;
+  --font-left-column: 0.8em;
+  --font-right-column: 0.85em;
   --font-size-footer: 0.8em;
   --font-size-h1: 1.5em;
   --font-size-h2: 1.3em;
@@ -680,7 +681,7 @@ footer .text p {
   grid-area: header;
   border-left: none;
   margin-left: 0.5em;
-  font-size: var(--font-size-header);
+  font-size: var(--font-right-column);
 }
 .header .container h1 {
   font-family: var(--font-family-title);
@@ -700,7 +701,7 @@ footer .text p {
   flex-direction: column;
   align-items: start;
   z-index: 1;
-  font-size: 0.8em;
+  font-size: var(--font-left-column);
 }
 .left-column .full-name,
 .left-column .personal-info,
@@ -723,7 +724,7 @@ footer .text p {
   grid-area: right-column;
   border-left: none;
   margin-left: 0.5em;
-  font-size: var(--font-size-header);
+  font-size: var(--font-right-column);
 }
 
 .cv-aside ul {

@@ -50,7 +50,7 @@
     padding: 1em 0.25em !important;
   }
   .header {
-    font-size: var(--font-size-header);
+    font-size: var(--font-right-column);
   }
   .full-name {
     margin: 1em 0;
@@ -73,7 +73,7 @@
     padding: 0.5em;
   }
   .header {
-    font-size: calc(var(--font-size-header) - 5%);
+    font-size: calc(var(--font-right-column) - 5%);
   }
 }
 

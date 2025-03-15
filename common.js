@@ -359,3 +359,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.title = "CV_Julien_Jean_developer_fullstack_JavaScript";
 });
+
+// Make the content editable for title & description
+const headerTitle = document.getElementById("header-title-id");
+const headerDescription = document.getElementById("header-description-id");
+
+let originalTitle = headerTitle.innerHTML;
+let originalDescription = headerDescription.innerHTML;
+
+function resetEditableElements() {
+  if (headerTitle.isContentEditable || headerDescription.isContentEditable) {
+    headerTitle.contentEditable = false;
+    headerDescription.contentEditable = false;
+    originalTitle = headerTitle.innerHTML;
+    originalDescription = headerDescription.innerHTML;
+  }
+}
+
+headerTitle.addEventListener("click", (event) => {
+  event.stopPropagation();
+  if (!headerTitle.isContentEditable) {
+    resetEditableElements();
+    headerTitle.contentEditable = true;
+    headerTitle.focus();
+  }
+});
+
+headerDescription.addEventListener("click", (event) => {
+  event.stopPropagation();
+  if (!headerDescription.isContentEditable) {
+    resetEditableElements();
+    headerDescription.contentEditable = true;
+    headerDescription.focus();
+  }
+});
+
+document.addEventListener("click", (event) => resetEditableElements());

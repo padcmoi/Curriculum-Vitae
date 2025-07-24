@@ -64,6 +64,32 @@ SkillCreator.initialize(document.getElementById("skills-id"), skillsData);
 // timeline professionnal career
 new TimelineEvents(document.getElementById("professional-experiences"), [
   {
+    startDate: "juin 2025",
+    endDate: "juillet 2025",
+    title: "Développeur web front-end",
+    legalStatus: "",
+    company: "Flying Eye",
+    companyUrl: "https://www.flyingeye.fr/",
+    location: "Biot (à distance)",
+    localize: { city: "Biot", country: "FRANCE" },
+    description: [
+      {
+        element: "p",
+        content: "Audit et refonte de Flying Hub (Vue.js 3.5), développée avec Option API sans TypeScript et global properties ($root) au lieu de Pinia ou Vuex.",
+      },
+      {
+        element: "ul",
+        children: [
+          "Initiation de la refactorisation d'état vers Pinia.",
+          "Modernisation des composants avec Composition API et TypeScript, respectant le Principe de Responsabilité Unique.",
+          "Mise en place de tests unitaires/integrations avec Vitest.",
+          "Création d'un service API (Axios, interceptors Auth et CSRF).",
+          "Alignement sur les bonnes pratiques modernes et de sécurité (OWASP, conformité ANSSI).",
+        ],
+      },
+    ],
+  },
+  {
     startDate: "avril 2022",
     endDate: "février 2024",
     title: "Développeur frontend JavaScript",
@@ -100,11 +126,7 @@ new TimelineEvents(document.getElementById("professional-experiences"), [
     description: [
       {
         element: "p",
-        content: `Développement d’un dashboard Vue.js + API Express pour l’administration et la modération d’une plateforme de rencontre. Fonctionnalités clés :`,
-      },
-      {
-        element: "ul",
-        children: [`Gestion des utilisateurs et des rôles via ACL (admin, modérateur)`, `Interface responsive et sécurisée`],
+        content: `Développement d’un dashboard Vue.js avec API Express pour l’administration et la modération d’une plateforme de rencontre, incluant gestion des utilisateurs et rôles via ACL (admin, modérateur), avec une interface responsive et sécurisée.`,
       },
     ],
   },
@@ -120,12 +142,7 @@ new TimelineEvents(document.getElementById("professional-experiences"), [
     description: [
       {
         element: "p",
-        content: `Développement d’un site web optimisé SEO (Nuxt.js v2 + API Symfony v5) pour remplacer un site existant peu flexible.
-Fonctionnalités clés :`,
-      },
-      {
-        element: "ul",
-        children: [`Gestion autonome des chevaux (CRUD) et des images (conversion WebP)`, `Rappels automatisés pour les soins vétérinaires (vermifuge, ferrage, etc.) par SMS & Email`],
+        content: `Développement d’un site web optimisé SEO (Nuxt.js v2 + API Symfony v5) pour remplacer un site existant peu flexible, avec gestion autonome des chevaux (CRUD) et des images (conversion WebP), ainsi que rappels automatisés pour les soins vétérinaires (vermifuge, ferrage, etc.) par SMS et Email.`,
       },
     ],
   },

@@ -64,9 +64,9 @@ SkillCreator.initialize(document.getElementById("skills-id"), skillsData);
 // timeline professionnal career
 new TimelineEvents(document.getElementById("professional-experiences"), [
   {
-    startDate: "11 avril 2022",
-    endDate: "29 février 2024",
-    title: "Développeur frontend JavaScript (Contrat de professionnalisation)",
+    startDate: "avril 2022",
+    endDate: "février 2024",
+    title: "Développeur frontend JavaScript",
     legalStatus: "SAS",
     company: "ExAssess (VTEST)",
     companyUrl: "https://www.vtest.com/",
@@ -75,30 +75,24 @@ new TimelineEvents(document.getElementById("professional-experiences"), [
     description: [
       {
         element: "p",
-        content: `Développement d'une application en VanillaJS permettant d’évaluer les compétences en anglais d’un candidat sur quatre aspects : oral, écoute, écriture et lecture.`,
+        content: `Développement de Young Learner, une application d’évaluation d’anglais pour les 7–15 ans. Fonctionnalités clés :`,
       },
-      { element: "p", content: `Fonctionnalités de l'application :` },
       {
         element: "ul",
         children: [
-          `Capture en direct du micro de l'utilisateur.`,
-          `Mise en cache des sons écoutés pour garantir leur disponibilité.`,
-          `Déplacement des éléments en Drag and Drop.`,
-          `Utilisation d'un timer pour guider l'utilisateur à travers différents exercices et évaluer sa rapidité avant de sauvegarder les résultats vers l'API.`,
+          `Première version en VanillaJS (sans TypeScript), puis refonte complète sous Vue 3 avec TypeScript et tests d’intégration`,
+          `Fonctionnalités techniques (capture micro, cache audio, drag & drop, timers interactifs) avec un souci constant d’optimisation de l’UX`,
+          `Migration de 3 apps Vue (Vue 2 & 3) vers une app unifiée sous Nuxt 3 (TypeScript)`,
+          `Développement de fonctionnalités avancées sur 3 apps existantes (Vue 2 et Vue 3)`,
+          `Collaboration avec l’équipe backend (NestJS), déploiement sur AWS, gestion de projet via ClickUp`,
         ],
-      },
-      { element: "p", content: `Étroitement collaboré avec l’équipe backend sur les endpoints, avec des contributions sur l’API NestJS.` },
-      { element: "custom", content: `<div class="my-1"></div>` },
-      {
-        element: "p",
-        content: `Gestion de projet sur ClickUp, réunions quotidiennes et déploiement sur AWS (DevOps). Création de composants sur une application Nuxt 3 avec TypeScript et correctifs.`,
       },
     ],
   },
   {
     startDate: "octobre 2021",
     endDate: "décembre 2021",
-    title: "Développeur web fullstack JavaScript (Freelance)",
+    title: "Développeur web fullstack JavaScript",
     company: "Skyview innovation",
     companyUrl: "https://www.skyviewinnovation.fr/",
     location: "Menton",
@@ -106,14 +100,19 @@ new TimelineEvents(document.getElementById("professional-experiences"), [
     description: [
       {
         element: "p",
-        content: `Création d'un Dashboard avec Vue.js et une API Express pour un service de rencontre en ligne, incluant la gestion des utilisateurs et des ACLs pour les autorisations (admin/modérateur).`,
+        content: `Développement d’un dashboard Vue.js + API Express pour l’administration et la modération d’une plateforme de rencontre. Fonctionnalités clés :`,
+      },
+      {
+        element: "ul",
+        children: [`Gestion des utilisateurs et des rôles via ACL (admin, modérateur)`, `Interface responsive et sécurisée`],
       },
     ],
   },
+
   {
     startDate: "mai 2020",
     endDate: "juillet 2020",
-    title: "Développeur web fullstack (Stage pour le titre professionnel)",
+    title: "Développeur web fullstack",
     company: "Les petits sabots 64",
     companyUrl: "https://www.societe.com/societe/monsieur-didier-supervielle-792272056.html",
     location: "Monein (100% télétravail)",
@@ -121,21 +120,13 @@ new TimelineEvents(document.getElementById("professional-experiences"), [
     description: [
       {
         element: "p",
-        content: `
-        Lors de ce stage, j'ai collaboré avec un centre équestre qui rencontrait des difficultés avec son site web. 
-Leur agence web facturait chaque ajout d'images, ce qui posait problème pour le centre équestre.
-        `,
-      },
-      { element: "custom", content: `<div class="my-1"></div>` },
-      {
-        element: "p",
-        content: `J'ai donc développé un site web complet avec Nuxt.js v2(optimisé pour la SEO) et une API Symfony v5, permettant au client de gérer facilement les images et les informations des chevaux. Les fonctionnalités incluaient :`,
+        content: `Développement d’un site web optimisé SEO (Nuxt.js v2 + API Symfony v5) pour remplacer un site existant peu flexible.
+Fonctionnalités clés :`,
       },
       {
         element: "ul",
-        children: [`Gestion des images et conversion au format webp (plus leger).`, `Gestion des chevaux (consultation, ajout, modification, suppression).`, `Rappels pour les soins des chevaux (vermifuge, ferrage, etc.).`],
+        children: [`Gestion autonome des chevaux (CRUD) et des images (conversion WebP)`, `Rappels automatisés pour les soins vétérinaires (vermifuge, ferrage, etc.) par SMS & Email`],
       },
-      { element: "p", content: "Malgré des mesures de sécurité rigoureuses (API), le client a souhaité retirer l'application par crainte de fuite de données." },
     ],
   },
 ]);

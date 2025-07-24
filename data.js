@@ -70,7 +70,7 @@ new TimelineEvents(document.getElementById("professional-experiences"), [
     legalStatus: "",
     company: "Flying Eye",
     companyUrl: "https://www.flyingeye.fr/",
-    location: "Biot (à distance)",
+    location: "Biot (100% télétravail)",
     localize: { city: "Biot", country: "FRANCE" },
     description: [
       {

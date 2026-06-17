@@ -352,13 +352,20 @@ function runBinaryReveal() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  startTypingEffects();
   hiddenElements();
   fetchLastCommitDate();
 
+  const small = window.matchMedia("(max-width: 1200px)").matches;
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (!window.__CV_STATIC__ && !reduceMotion) {
+  const animate = !window.__CV_STATIC__ && !small && !reduceMotion;
+
+  if (animate) {
+    startTypingEffects();
     runBinaryReveal();
+  } else {
+    document.querySelectorAll(".typing-effect, .typing-effect-delayed").forEach((el) => {
+      el.classList.remove("typing-effect", "typing-effect-delayed");
+    });
   }
 
   document.title = "CV_Julien_Jean_developer_fullstack_JavaScript";

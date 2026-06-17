@@ -1,17 +1,30 @@
-@media only screen and (max-width: 820px) {
+@media only screen and (max-width: 1200px) {
   body {
     padding: 0;
   }
   .cv {
     width: 100%;
     height: auto;
+    overflow: visible;
     border-radius: 0;
     box-shadow: none;
+  }
+  .cv-head,
+  .cv-body {
+    overflow: visible;
   }
   .cv-head {
     flex-direction: column;
     text-align: center;
     padding: 10mm 7mm 6mm;
+  }
+  .typing-effect,
+  .typing-effect-delayed {
+    display: block !important;
+    width: auto !important;
+    white-space: normal !important;
+    border-right: 0 !important;
+    animation: none !important;
   }
   .head-contact {
     justify-content: center;

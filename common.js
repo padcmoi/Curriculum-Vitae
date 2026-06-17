@@ -1,77 +1,55 @@
 class SkillCreator {
-  constructor(name, level = "", stars = "", dots = false, { uppercase = false, italic = false } = {}, children = []) {
-    this.name = name;
-    this.level = level;
-    this.stars = stars;
-    this.dots = dots;
-    this.uppercase = uppercase;
-    this.italic = italic;
-    this.children = children;
-  }
+  static initialize(container, groups) {
+    groups.forEach((group) => {
+      const cat = document.createElement("div");
+      cat.className = "skill-cat";
 
-  createSkillItem() {
-    const li = document.createElement("li");
-    li.className = "skill-item";
+      const label = document.createElement("span");
+      label.className = "skill-cat-label no-select";
+      label.textContent = group.group;
+      cat.appendChild(label);
 
-    const nameSpan = document.createElement("span");
-    nameSpan.className = "name";
-    nameSpan.textContent = this.name;
-    if (this.uppercase) nameSpan.style.textTransform = "uppercase";
-    if (this.italic) nameSpan.style.fontStyle = "italic";
+      const chips = document.createElement("span");
+      chips.className = "chips";
 
-    li.appendChild(nameSpan);
+      group.items.forEach((item) => {
+        const chip = document.createElement("span");
+        chip.className = item.tier === "Intermédiaire" ? "chip chip--soft" : "chip";
+        chip.textContent = item.name;
+        chips.appendChild(chip);
+      });
 
-    if (this.dots) {
-      const dotsSpan = document.createElement("span");
-      dotsSpan.className = "dots";
-      li.appendChild(dotsSpan);
-    }
-
-    if (this.level) {
-      const levelSpan = document.createElement("span");
-      levelSpan.className = "level";
-      levelSpan.textContent = this.level;
-      levelSpan.classList.add("no-select");
-      li.appendChild(levelSpan);
-    }
-
-    if (this.stars) {
-      const starsDiv = document.createElement("div");
-      starsDiv.className = "stars";
-      starsDiv.textContent = this.stars;
-      starsDiv.classList.add("no-select");
-      li.appendChild(starsDiv);
-    }
-
-    return li;
-  }
-
-  static createSkillsList(skills, parentUl) {
-    skills.forEach((skill) => {
-      const skillItem = skill.createSkillItem();
-      parentUl.appendChild(skillItem);
-
-      if (skill.children.length > 0) {
-        const childUl = document.createElement("ul");
-        childUl.className = "skills-list child";
-        SkillCreator.createSkillsList(skill.children, childUl);
-        parentUl.appendChild(childUl);
-      }
+      cat.appendChild(chips);
+      container.appendChild(cat);
     });
   }
+}
 
-  static initialize(container, skillsData) {
-    const createSkill = (skill) => {
-      const options = { uppercase: skill.uppercase, italic: skill.italic };
-      return new SkillCreator(skill.name, skill.level, skill.stars, skill.dots, { ...options }, (skill.children || []).map(createSkill));
-    };
+class FormationCreator {
+  static initialize(container, list) {
+    list.forEach((f) => {
+      const item = document.createElement("div");
+      item.className = "formation-item";
 
-    const skills = skillsData.map(createSkill);
+      const title = document.createElement("div");
+      title.className = "formation-title";
+      title.textContent = f.title;
+      item.appendChild(title);
 
-    const skillsList = document.createElement("ul");
-    skillsList.className = "skills-list margin-right";
-    container.appendChild(skillsList);
-    SkillCreator.createSkillsList(skills, skillsList);
+      const meta = document.createElement("div");
+      meta.className = "formation-meta no-select";
+      meta.textContent = [f.org, f.year].filter(Boolean).join(" · ");
+      item.appendChild(meta);
+
+      if (f.note) {
+        const note = document.createElement("div");
+        note.className = "formation-note";
+        note.textContent = f.note;
+        item.appendChild(note);
+      }
+
+      container.appendChild(item);
+    });
   }
 }
 
@@ -111,24 +89,20 @@ class TimelineEvents {
   }
 
   renderEvent(event) {
-    const locationLink = event.localize ? `<a href="#" onclick="GoogleMapModal.initialize('${event.localize.city}', '${event.localize.country}').openModal()">${event.location}</a>` : event.location;
-    const companyContent = event.companyUrl ? `<a href="${event.companyUrl}" target="_blank">${event.company}</a>` : event.company;
+    const locationLink = event.localize ? `<a href="#" onclick="GoogleMapModal.initialize('${event.localize.city}', '${event.localize.country}').openModal()">${event.location}</a>` : event.location || "";
+    const companyContent = event.companyUrl ? `<a href="${event.companyUrl}" target="_blank">${event.company}</a>` : event.company || "";
+    const dateRange = [event.startDate, event.endDate].filter(Boolean).join(" - ");
+
+    const meta = [];
+    if (event.company) meta.push(`<span class="xp-company">${companyContent}</span>`);
+    if (event.location) meta.push(`<span class="xp-loc">${locationLink}</span>`);
 
     return `
-      <article class="timeline-event">
-        <div class="timeline-event-content three-rows" data-start="${event.startDate}" data-end="${event.endDate}" data-separator="-">
-          ${event.title ? `<h3>${event.title}</h3>` : ""}
-
-          ${
-            event.legalStatus || event.company || event.location
-              ? `<div ${event.descriptionClasses && event.descriptionClasses.length > 0 ? `class="${event.descriptionClasses.join(" ")}"` : ""}>
-                  ${event.legalStatus ? `[<abbr>${event.legalStatus}</abbr>]` : ""}
-                  ${event.company ? `<span>${companyContent}</span>` : ""}
-                  ${event.company && event.location ? `<small>-</small>` : ""}
-                  ${event.location ? `<address>${locationLink}</address>` : ""}
-                </div>`
-              : ""
-          }
+      <article class="xp">
+        <div class="xp-date no-select">${dateRange}</div>
+        <div class="xp-body">
+          ${event.title ? `<h3 class="xp-role">${event.title}</h3>` : ""}
+          ${meta.length ? `<div class="xp-meta">${meta.join('<span class="sep">·</span>')}</div>` : ""}
           ${this.renderDescription(event.description)}
         </div>
       </article>
@@ -303,7 +277,7 @@ function startTypingEffects() {
 }
 
 // github ribbon fork project
-if (window.location.hostname.includes("netlify.app")) {
+{
   const githubRibbon = document.createElement("a");
   githubRibbon.id = "fork-me-ongithub-id";
   githubRibbon.href = "https://github.com/padcmoi/Curriculum-Vitae";
@@ -352,10 +326,40 @@ async function fetchLastCommitDate() {
 window.addEventListener("resize", hiddenElements);
 window.addEventListener("orientationchange", hiddenElements);
 
+function runBinaryReveal() {
+  document.querySelectorAll(".binary-reveal").forEach((el) => {
+    const finalText = el.textContent;
+    const len = finalText.length;
+    const scrambleFrames = 12;
+    const totalFrames = scrambleFrames + len * 2;
+    let frame = 0;
+    const tick = () => {
+      const locked = Math.max(0, Math.floor((frame - scrambleFrames) / 2));
+      let out = "";
+      for (let i = 0; i < len; i++) {
+        out += finalText[i] === " " ? " " : i < locked ? finalText[i] : Math.random() < 0.5 ? "0" : "1";
+      }
+      el.textContent = out;
+      frame += 1;
+      if (frame <= totalFrames) {
+        setTimeout(tick, 45);
+      } else {
+        el.textContent = finalText;
+      }
+    };
+    tick();
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   startTypingEffects();
   hiddenElements();
   fetchLastCommitDate();
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!window.__CV_STATIC__ && !reduceMotion) {
+    runBinaryReveal();
+  }
 
   document.title = "CV_Julien_Jean_developer_fullstack_JavaScript";
 });

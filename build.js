@@ -11,6 +11,9 @@ chromium.setGraphicsMode = false;
   });
 
   const page = await browser.newPage();
+  await page.evaluateOnNewDocument(() => {
+    window.__CV_STATIC__ = true;
+  });
   await page.setViewport({ width: 1200, height: 800 });
   const fileUrl = `file:${path.join(__dirname, "index.html")}`;
   await page.goto(fileUrl);

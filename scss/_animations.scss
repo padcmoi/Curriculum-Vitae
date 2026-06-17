@@ -28,3 +28,42 @@
     border-color: var(--animation-blink-caret-color);
   }
 }
+
+@keyframes ring-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hc-pop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.25);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes bar-bounce {
+  0% {
+    transform: scaleX(0);
+  }
+  50% {
+    transform: scaleX(1.22);
+  }
+  70% {
+    transform: scaleX(0.92);
+  }
+  85% {
+    transform: scaleX(1.06);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}

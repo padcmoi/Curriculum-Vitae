@@ -190,6 +190,14 @@
     }
   }
 
+  .hc-remote {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.6mm;
+    color: var(--accent-strong);
+    font-weight: 600;
+  }
+
   .icon {
     color: var(--accent);
     font-size: 1.05em;

@@ -71,4 +71,7 @@
   .hide-element-on-small-screen {
     display: none !important;
   }
+  #fork-me-ongithub-id {
+    display: none !important;
+  }
 }

@@ -394,7 +394,7 @@ function runBinaryWrite() {
 document.addEventListener("DOMContentLoaded", function () {
   hiddenElements();
   fetchLastCommitDate();
-  document.title = "CV_Julien_Jean_developer_fullstack_JavaScript";
+  document.title = "CV_Julien_Jean_Developpeur_Fullstack_TypeScript";
 });
 
 // Make the content editable for title & description

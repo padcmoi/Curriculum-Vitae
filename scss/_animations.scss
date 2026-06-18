@@ -50,6 +50,18 @@
   }
 }
 
+@keyframes hc-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.82);
+    opacity: 0.55;
+  }
+}
+
 @keyframes bar-bounce {
   0% {
     transform: scaleX(0);

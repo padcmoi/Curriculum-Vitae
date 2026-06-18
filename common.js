@@ -351,23 +351,49 @@ function runBinaryReveal() {
   });
 }
 
+function runBinaryWrite() {
+  const lines = [document.querySelector(".head-name"), document.getElementById("header-title-id"), document.getElementById("header-description-id")].filter(Boolean);
+
+  const STEP = 48;
+  const TAIL = 6;
+  const escapeChar = (ch) => (ch === "&" ? "&amp;" : ch === "<" ? "&lt;" : ch === ">" ? "&gt;" : ch);
+  const bit = (ch) => (ch === " " ? " " : Math.random() < 0.5 ? "0" : "1");
+
+  // Blank every line up-front so the final text never flashes before it is written.
+  const finals = lines.map((el) => {
+    const text = el.textContent.replace(/\s+/g, " ").trim();
+    el.textContent = "";
+    return text;
+  });
+
+  const animateLine = (el, finalText) =>
+    new Promise((resolve) => {
+      const len = finalText.length;
+      let head = 0;
+      const tick = () => {
+        const locked = Math.max(0, head - TAIL);
+        const edge = Math.min(head, len);
+        let out = "";
+        for (let i = 0; i < locked; i++) out += escapeChar(finalText[i]);
+        for (let i = locked; i < edge; i++) out += bit(finalText[i]);
+        el.innerHTML = out + (locked < len ? '<span class="bw-caret"></span>' : "");
+        if (locked < len) {
+          head += 1;
+          setTimeout(tick, STEP);
+        } else {
+          el.textContent = finalText;
+          resolve();
+        }
+      };
+      tick();
+    });
+
+  lines.reduce((chain, el, i) => chain.then(() => animateLine(el, finals[i])), Promise.resolve());
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   hiddenElements();
   fetchLastCommitDate();
-
-  const small = window.matchMedia("(max-width: 1200px)").matches;
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const animate = !window.__CV_STATIC__ && !small && !reduceMotion;
-
-  if (animate) {
-    startTypingEffects();
-    runBinaryReveal();
-  } else {
-    document.querySelectorAll(".typing-effect, .typing-effect-delayed").forEach((el) => {
-      el.classList.remove("typing-effect", "typing-effect-delayed");
-    });
-  }
-
   document.title = "CV_Julien_Jean_developer_fullstack_JavaScript";
 });
 
@@ -406,3 +432,14 @@ headerDescription.addEventListener("click", (event) => {
 });
 
 document.addEventListener("click", (event) => resetEditableElements());
+
+// Kick off the load animations synchronously (before first paint) so the final
+// text is never shown before it is written. Runs after the editable block above
+// so the original header text is captured before the lines are blanked.
+const cvShouldAnimate = () => !window.__CV_STATIC__ && !window.matchMedia("(max-width: 1200px)").matches && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+if (cvShouldAnimate()) {
+  runBinaryWrite();
+  runBinaryReveal();
+  setInterval(runBinaryReveal, 15000);
+}

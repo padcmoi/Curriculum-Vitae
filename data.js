@@ -22,12 +22,13 @@ const skillsData = [
       { name: "NestJS", tier: "Confirmé" },
       { name: "Express", tier: "Confirmé" },
       { name: "RabbitMQ", tier: "Confirmé" },
+      { name: "LLM (Mistral)", tier: "Confirmé" },
     ],
   },
   {
     group: "Sécurité",
     items: [
-      { name: "HMAC / APIToken", tier: "Confirmé" },
+      { name: "HMAC", tier: "Confirmé" },
       { name: "Bearer JWT", tier: "Confirmé" },
       { name: "SSO", tier: "Confirmé" },
       { name: "ACL", tier: "Confirmé" },
@@ -60,11 +61,11 @@ new TimelineEvents(document.getElementById("professional-experiences"), [
       {
         element: "ul",
         children: [
-          "Conception d'APIs internes / externes (NestJS) et architecture microservices, échanges via RabbitMQ.",
-          "Authentification : HMAC et APIToken entre microservices, Bearer JWT côté utilisateurs, mise en place du SSO.",
-          "Front Vue 3 / Nuxt 4 / Next.js (Tailwind v4), back Node.js / NestJS / Express en TypeScript.",
-          "Packages NPM versionnés (semantic versioning, conventional commits) couverts par des tests unitaires.",
-          "GitLab CI/CD, Docker, durcissement VPS Debian ; reprise et fiabilisation de code existant.",
+          "Architecture SaaS B2B : front Vue 3 / Nuxt 4 / Next.js, back NestJS, microservices via RabbitMQ et Redis.",
+          "Intégration d'un LLM (Mistral) pour l'extraction et la classification de documents, conforme RGPD.",
+          "Publication de librairies npm TypeScript réutilisables et maintenables (authentification inter-services, semantic versioning, conventional commits), testées unitairement.",
+          "Sécurité & cloisonnement : HMAC entre microservices, Bearer JWT et SSO utilisateurs, ACL.",
+          "Infrastructure : mise en place et administration de serveurs VPS Debian (durcissement) ; Docker, déploiement continu GitLab CI/CD.",
         ],
       },
     ],
@@ -72,7 +73,7 @@ new TimelineEvents(document.getElementById("professional-experiences"), [
   {
     startDate: "juin 2025",
     endDate: "juillet 2025",
-    title: "Développeur web front-end",
+    title: "Développeur front-end Vue.js",
     company: "Flying Eye",
     companyUrl: "https://www.flyingeye.fr/",
     location: "Biot",
@@ -80,14 +81,25 @@ new TimelineEvents(document.getElementById("professional-experiences"), [
     description: [
       {
         element: "ul",
-        children: ["Refonte de Flying Hub (Vue 3.5) : migration Option API vers Composition API + TypeScript, état vers Pinia.", "Tests Vitest, service API Axios (Auth, CSRF), conformité OWASP / ANSSI."],
+        children: ["Refonte de Flying Hub (Vue 3.5) : migration Options API vers Composition API + TypeScript, état centralisé Pinia.", "Tests Vitest, couche API Axios (authentification, CSRF), conformité OWASP / ANSSI."],
+      },
+    ],
+  },
+  {
+    startDate: "2024",
+    endDate: "2025",
+    title: "Projets personnels & montée en compétences",
+    description: [
+      {
+        element: "ul",
+        children: ["Projets web personnels en TypeScript (Vue / Nuxt en front, NestJS en back).", "Spécialisation back-end, microservices et sécurité applicative."],
       },
     ],
   },
   {
     startDate: "avril 2022",
     endDate: "février 2024",
-    title: "Développeur frontend JavaScript / TypeScript",
+    title: "Développeur front-end JavaScript / TypeScript",
     company: "ExAssess (VTEST)",
     companyUrl: "https://www.vtest.com/",
     location: "Paris",
@@ -95,14 +107,14 @@ new TimelineEvents(document.getElementById("professional-experiences"), [
     description: [
       {
         element: "ul",
-        children: ["Refonte de Young Learner (VanillaJS vers Vue 3 + TypeScript) avec tests d'intégration.", "Migration de 3 apps Vue 2 & 3 vers Nuxt 3 ; collaboration backend NestJS, déploiement AWS."],
+        children: ["Conception et développement de Young Learner (Vue 3 + TypeScript) avec tests d'intégration.", "Migration de 3 applications Vue 2 / 3 vers Nuxt 3 ; collaboration back-end NestJS, déploiement AWS."],
       },
     ],
   },
   {
     startDate: "oct. 2021",
     endDate: "déc. 2021",
-    title: "Développeur web fullstack JavaScript",
+    title: "Développeur fullstack JavaScript",
     company: "Skyview innovation",
     companyUrl: "https://www.skyviewinnovation.fr/",
     location: "Menton",
@@ -110,7 +122,7 @@ new TimelineEvents(document.getElementById("professional-experiences"), [
     description: [
       {
         element: "ul",
-        children: ["Dashboard d'administration et de modération (Vue + API Express) avec gestion des rôles par ACL.", "Interface responsive et sécurisée pour une plateforme communautaire."],
+        children: ["Conception d'un dashboard d'administration et de modération (Vue + API Express), gestion fine des rôles par ACL.", "Interface responsive et sécurisée pour une plateforme communautaire."],
       },
     ],
   },
@@ -119,14 +131,14 @@ new TimelineEvents(document.getElementById("professional-experiences"), [
 // formations & certifications
 const formationsData = [
   {
+    title: "Certifications développeur web (JavaScript, Vue.js, Node.js)",
+    org: "DYMA",
+    year: "2025",
+  },
+  {
     title: "Bachelor Concepteur développeur d'applications",
     org: "O'clock",
     year: "2024",
-  },
-  {
-    title: "Certifications développeur",
-    org: "DYMA",
-    year: "2025",
   },
   {
     title: "Titre pro. Développeur web & mobile",
